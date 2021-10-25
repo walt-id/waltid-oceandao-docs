@@ -35,7 +35,7 @@ We start out by generating a Secp256k1 key.
 > Key "efc581186a0945d8af75cdb8e1b16033" generated.
 
 ### 2. DID EBSI creation
-We contine to create a did:ebsi usingthe key which we've just generated.
+We contine to create a did:ebsi using the key which we've just generated.
 
     ssikit did create -m ebsi -k efc581186a0945d8af75cdb8e1b16033
     # obviously we'll use the key here that we've just generated
@@ -54,7 +54,7 @@ Save your bearer-token somewhere the container is able to access, e.g. `data/bea
     echo "eyJhbGc_YOUR_TOKEN_HERE..." | sudo tee data/bearer-token.txt
 
 #### 3.1. Onboarding flow:
-Enter the did:ebsi that was generated above, 
+Enter the did:ebsi that was generated above and supply.the bearer-token.
 
     ssikit essif onboard --did did:ebsi:zyc8qqkQifbyqZF7GGHW8zS data/bearer-token.txt
 

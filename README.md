@@ -5,7 +5,7 @@ For easy reproducibility, we have published a custom docker container (at docker
 ## Setting up Walt.ID SSI-Kit
 
 ### 1. Initiating directory with the Walt.ID SSI-Kit
-In the after-next step, we will use docker to create an container mount, which will owned by root:root. To not have random root-owned directories laying around, we recommend first creating a new directory.
+In the after-next step, we will use docker to create a container mount, which will be owned by root:root. To not have random root-owned directories laying around, we recommend first creating a new directory.
 
     mkdir issuer-service && cd issuer-service
 

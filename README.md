@@ -35,7 +35,7 @@ We start out by generating a Secp256k1 key.
 > Key "efc581186a0945d8af75cdb8e1b16033" generated.
 
 ### 2. DID EBSI creation
-We contine to create a did:ebsi with the key which we have just generated.
+We contine to create a did:ebsi usingthe key which we've just generated.
 
     ssikit did create -m ebsi -k efc581186a0945d8af75cdb8e1b16033
     # obviously we'll use the key here that we've just generated

@@ -54,7 +54,7 @@ Save your bearer-token somewhere the container is able to access, e.g. `data/bea
     echo "eyJhbGc_YOUR_TOKEN_HERE..." | sudo tee data/bearer-token.txt
 
 #### 3.1. Onboarding flow:
-Enter the did:ebsi that was generated above and supply.the bearer-token.
+Enter the did:ebsi that was generated above and supply the bearer-token.
 
     ssikit essif onboard --did did:ebsi:zyc8qqkQifbyqZF7GGHW8zS data/bearer-token.txt
 

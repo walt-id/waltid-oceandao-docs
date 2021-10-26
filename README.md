@@ -143,7 +143,9 @@ Using the credential we've just generated, we will generate a Verifiable Present
 
 #### 5. Via REST (Swagger)
 
-    ssikit serve
+    ssikit serve             # binds to 127.0.0.1
+
+    ssikit serve -b 0.0.0.0  # binds to 0.0.0.0 <--- needed for docker
 > Walt.ID SSI-Kit 1.0-SNAPSHOT (deltaDAO custom release) (running on Java 16.0.1+9-24)  
 >   
 >  walt.id Core API:      http://127.0.0.1:7000  

@@ -22,7 +22,24 @@ We will continue to create an alias, otherwise the commands will be incredibly l
 Now all sensitive data, like cryptographic key, DIDs and credentials will be stored with root-rights in the "data" directory.  
 Try it out:
 
+    ssikit -v
+
+> Walt.ID SSI-Kit 1.0-SNAPSHOT (deltaDAO custom release) (running on Java 16.0.1+9-24)  
+>  
+> SSI Kit: 1.0-SNAPSHOT (deltaDAO custom release) - SNAPSHOT VERSION, use only for demo and testing purposes)  
+> Environment: OpenJDK Runtime Environment of OpenJDK 64-Bit Server VM (2021-04-20)  
+> OS version:  Linux 5.14.14-arch1-1  
+
     ssikit -h
+
+
+>Walt.ID SSI-Kit 1.0-SNAPSHOT (deltaDAO custom release) (running on Java 16.0.1+9-24)  
+>  
+>  
+>  SSI Kit by walt.id  
+>  
+>  ...  
+>  
 
 ## 2. Setting up an Issuer on the EBSI ledger
 
@@ -35,7 +52,7 @@ We start out by generating a Secp256k1 key.
 > Key "efc581186a0945d8af75cdb8e1b16033" generated.
 
 ### 2. DID EBSI creation
-We contine to create a did:ebsi using the key which we've just generated.
+We contine to create a **did:ebsi** using the key which we've just generated.
 
     ssikit did create -m ebsi -k efc581186a0945d8af75cdb8e1b16033
     # obviously we'll use the key here that we've just generated
@@ -54,33 +71,39 @@ Save your bearer-token somewhere the container is able to access, e.g. `data/bea
     echo "eyJhbGc_YOUR_TOKEN_HERE..." | sudo tee data/bearer-token.txt
 
 #### 3.1. Onboarding flow:
-Enter the did:ebsi that was generated above and supply the bearer-token.
+Enter the **did:ebsi** that was generated above and supply the bearer-token.
 
     ssikit essif onboard --did did:ebsi:zyc8qqkQifbyqZF7GGHW8zS data/bearer-token.txt
 
-> ESSIF onboarding of did:ebsi:zyc8qqkQifbyqZF7GGHW8zS...  
-> ESSIF onboarding for DID did:ebsi:zyc8qqkQifbyqZF7GGHW8zS was performed successfully.
+> ESSIF onboarding for DID did:ebsi:zyc8qqkQifbyqZF7GGHW8zS running...  
+> ESSIF onboarding for DID did:ebsi:zyc8qqkQifbyqZF7GGHW8zS was performed successfully.  
 
 #### 3.2 Authentication API flow:
 
     ssikit essif auth-api --did did:ebsi:zyc8qqkQifbyqZF7GGHW8zS
 
-> Running EBSI Authentication API flow...  
-> EBSI Authorization flow was performed successfully.
+> EBSI Authentication API flow for DID did:ebsi:zyc8qqkQifbyqZF7GGHW8zS running...  
+> EBSI Authentication API flow for DID did:ebsi:zyc8qqkQifbyqZF7GGHW8zS was performed successfully.  
 
 #### 3.3 Writing to ledger (signing of ETH transaction):
 
-    ssikit essif did register --did did:ebsi:zrsRwW1wFHcrBsFazkq3yUf
+    ssikit essif did register --did did:ebsi:zyc8qqkQifbyqZF7GGHW8zS  
 
-> Registering DID did:ebsi:zyc8qqkQifbyqZF7GGHW8zS on the EBSI ledger...  
-> DID registration was performed successfully. Call command: 'did resolve --did did:ebsi:zyc8qqkQifbyqZF7GGHW8zS' in order to retrieve the DID document from the EBSI ledger.
+> EBSI ledger registration for DID did:ebsi:zyc8qqkQifbyqZF7GGHW8zS running...  
+> EBSI ledger registration for DID did:ebsi:zyc8qqkQifbyqZF7GGHW8zS was performed successfully.  
+> Call command: 'did resolve --did did:ebsi:zyc8qqkQifbyqZF7GGHW8zS' in order to retrieve the DID document from the EBSI ledger.  
 
 #### 3.4 Try out DID resolving via CLI:
 
-    ssikit did resolve --did did:ebsi:zrsRwW1wFHcrBsFazkq3yUf
+    ssikit did resolve --did did:ebsi:zyc8qqkQifbyqZF7GGHW8zS
 
 > Resolving DID "did:ebsi:zyc8qqkQifbyqZF7GGHW8zS"...  
-> Result: ...
+>  
+> Results:  
+>  
+> DID resolved: "did:ebsi:zyc8qqkQifbyqZF7GGHW8zS"  
+> DID document (below, JSON):  
+> ...
 
 Alternatively, the DID can also be resolved directly using the ESSIF API:
 
@@ -122,10 +145,18 @@ You'll be able to specify the different fields in the `credentialSubject` using 
 
 Using the credential we've just generated, we will generate a Verifiable Presentation (VP) as a holder (with the did:key).
 
-    ssikit vc present --holder-did did:key:z6MkerDxjrmLUKovtbiAYRQYLKHb6cguSRhucaz7nXN9ZtLw data/vc.json
+    ssikit vc present --holder-did did:key:z6MkwgKrgtL9mvxJLikqsXUNPxSko17bPb5fxvvurcditnX6 data/vc.json
 
-> Creating verifiable presentation from files...  
-> Saved verifiable presentation to: "data/vc/presented/vp-1635188200959.json"  
+> Creating a verifiable presentation for DID "did:key:z6MkwgKrgtL9mvxJLikqsXUNPxSko17bPb5fxvvurcditnX6"...  
+> Using 1 VC:  
+> - 1. data/vc.json (GaiaxCredential)  
+>  
+> Results:  
+>  
+> Verifiable presentation generated for holder DID: "did:key:z6MkwgKrgtL9mvxJLikqsXUNPxSko17bPb5fxvvurcditnX6"
+> Verifiable presentation document (below, JSON):
+> ...
+> Verifiable presentation was saved to file: "data/vc/presented/vp-1635188200959.json"  
 
 ### 4.4. Verifying the VP
 

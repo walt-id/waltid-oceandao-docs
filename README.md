@@ -1,4 +1,4 @@
-# Instructions for the Walt.ID SSI-Kit custom buid for deltaDAO
+# Instructions for the Walt.ID SSI-Kit custom buid for OceanDAO
 
 For easy reproducibility, we have published a custom docker container (at docker hub with the tag "1.0-SNAPSHOT-custom-deltadao") so that you can follow these examples without having to setup a SSI-Kit environment. Our dockerfiles are also podman compatible, if you'd rather like to use podman instead of docker.
 

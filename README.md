@@ -11,13 +11,13 @@ In the after-next step, we will use docker to create a container mount, which wi
 
 Pull the container:
 
-    docker pull docker.io/waltid/ssikit:1.0-SNAPSHOT-custom-deltadao
+    docker pull docker pull docker.io/waltid/ssikit
 
 ### 2. Create an alias
 
 We will continue to create an alias, otherwise the commands will be incredibly long. Of course this isn't actually mandatory, you can easily replace all instances of the alias-command "ssikit" with the content between the quotes in the next line.
 
-    alias ssikit="docker container run -p 7000-7004:7000-7004 -itv $(pwd)/data:/app/data docker.io/waltid/ssikit:1.0-SNAPSHOT-custom-deltadao"
+    alias ssikit="docker container run -p 7000-7004:7000-7004 -itv $(pwd)/data:/app/data docker.io/waltid/ssikit"
 
 Now all sensitive data, like cryptographic key, DIDs and credentials will be stored with root-rights in the "data" directory.  
 Try it out:

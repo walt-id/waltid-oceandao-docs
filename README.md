@@ -1,3 +1,12 @@
+## 🚨 Repository Moved
+
+> [!IMPORTANT]
+> This repository is no longer maintained.
+> 
+> All walt.id development continues in the monorepo:
+> 
+### 👉 Code **https://github.com/walt-id/waltid-identity** & Docs **https://docs.walt.id**
+
 # Instructions for the OceanDAO SSI Use Case
 
 This guide demonstrates how to create a Decentralized Identifier (DID) and to register it on the EBSI ledger. Furthermore the issuance as well as the verification-process of the _GaiaxCredential_ is shown.
